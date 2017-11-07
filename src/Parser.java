@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 //import java.io.PrintWriter;
 import java.util.Scanner;
+
 public class Parser {
     int BLOCK_BYTES = 4096;
     int RECORD_BYTES = 8;
@@ -11,6 +12,7 @@ public class Parser {
 	private String outFile;
 	private String runningFile1;
 	private Scanner sc;
+	private Node in;
 	private RandomAccessFile raf; 
 	private DataBufferSort dbs;
 	public Parser(String inputFile, String outputFile){
@@ -78,7 +80,8 @@ public class Parser {
                 System.out.println("The record key-value pair is: " 
                         + key + ", " + value);
                 //TODO: move values into a HashMap
-                dbs.hmIn.put(key, value);
+                in = new Node(value,key);
+                dbs.hmIn.add(in);
             }
             return raf.getFilePointer();        
 	    }
