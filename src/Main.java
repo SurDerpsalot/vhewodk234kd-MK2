@@ -36,7 +36,7 @@ public class Main {
         String outputFile = args[1];
         Parser p = new Parser(inputFile, outputFile);
         p.parse();
-        p.outputDump();
+       // p.outputDump();
 	}
 
 }
